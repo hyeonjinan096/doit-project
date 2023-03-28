@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');/*로고 폰트*/
+/*내 코드*/
+* {
+    margin: 0; /*마진값 초기화*/
+    padding: 0; /*패딩값 초기화*/
+    box-sizing: border-box; /*박스 영역은 테두리까지 지정*/
+}
+
+a{
+    text-decoration: none; /*리크 밑줄 없어짐*/
+}
+
+ul{
+    list-style: none; /*불릿 기호 없애주기*/
+}
+
+#container {
+    margin: 0 auto; /*정중앙에 배치*/
+    width: 1200px; /*너비 지정*/
+}
+
+/*헤더 영역*/
+header {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(246, 248, 246);
+}
+
+/*로고 영역*/
+#logo {
+    float: left;  /*왼쪽으로 플로팅*/
+    width: 250px; /*너비*/
+    height:100px; /*높이*/
+    line-height:100px; /*(뭥미)height값과 같게 만들어서 세로로 중간에 오도록 맞춤*/
+    padding-left:20px; /*왼쪽 패딩 지정*/
+}
+#logo h1{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700; /*이거 뭥미 아마 굵기*/
+    font-size: 40px;
+    color:#6493d9;  
+    text-shadow: 0 -1px 0 #222; /*그림자색*/
+
+}
+
+/*내비게이션 영역*/
+nav {
+    float: right; /*오른쪽으로 프로팅*/
+    width:900px;
+    height:100px;
+    padding-top: 40px;
+}
+
+#topMenu{
+    height: 60px;
+}
+#topMenu > li{
+float: left; /*메뉴 항목을 횐쪽으로 플로팅*/
+position: relative;  /*서브메뉴의 기준*/
+}
+#topMenu>li>a{
+    display: block; /*뭥미 링크 택스트는 블록으로*/
+    color:#6493d9;/*폰트 색상*/
+    font-weight: 600; /*폰트 굵기*/
+    text-shadow: 0 1px #07c; /*그림자 추가*/
+    padding: 20px 60px; /*패딩 지정*/
+}
+#topMenu > li > a >span {
+    font-size: 0.5em;  /*화살표 설정*/
+}
+#topMenu > li > a:hover {/*hover뭥미*/
+    color: #000; /*마우스 포인터를 올리면 색상 바뀜*/
+    text-shadow: 0 -1px #07c;/*글자가 굵어지지 않도록 지정*/
+}
+#topMenu > li > ul {
+    display: none;/*처음에는 감춰짐*/
+    position: absolute;  /*서브메뉴 포지셔닝*/
+    width: 160px;
+    background-color: rgba(255, 255, 255, 0.6); /*투명색으로 지정*/
+    left: 20px; /*서브 메뉴 박스 가운데 정렬*/
+    margin: 0;
+}
+#topMenu> li> ul>li{
+    padding: 10px 10px 10px 30px;  /*서브 메뉴 항목 지정*/
+}
+#topMenu > li > ul >li >a {
+    font-size: 14px;
+    padding: 10px;
+    color: #000;
+}
+
+#topMenu > li:hover > ul {
+    display: block;  /*메인 메뉴 항목 위로 오버하면 서브메뉴 표시*/
+    z-index: 10;   /*슬라이드쇼에 가리지 않게 조절*/
+}
+#topMenu > li >ul > li>a:hover {
+    color:#f00;   /*서브메뉴 마우스 오버하면 색상 바꾸기*/
+}
+
+/*이미지 슬라이드 쇼 영역*/
+#slideShow {
+    clear: both; /*프로팅 해제 이게 뭔지 모르겠음*/
+    width: 100%;
+    height:300px;
+    overflow:hidden;  /*영역 넘치면 감춤*/ 
+    position: relative;
+}
+#slides {
+    position: absolute;
+}
+#slides>img {
+    width: 100%;
+    float: left; /*베치*/
+}
+button {
+    position: absolute;
+    height:100%; /*여기 모르겠음 원래 100%*/ /*이미지 높이에 맞추기*/
+    top:0;
+    border:none;/*테두리 없이*/
+    padding: 20px;
+    background-color: transparent;  /*투명한 배경*/
+    color: #000;   /*화살표 검은색*/
+    font-weight: 800;/*화살표 굵게 */
+    font-size:24px;   /*화살표 크기 지정*/
+    opacity:0.5;    /*화살표를 반투명하게 지정*/
+}
+#prev {
+    left:0;
+}
+#next{
+    right:0;
+}
+button:hover {
+background-color: #222; /*배경색은 회색*/
+color:#fff;   /*흰색 화살표*/
+opacity: 0.6;  /*불투명도를 높임*/
+cursor:pointer; /*포인터 모양으로 바꿈*/
+}
+button:focus { /*이거 뭔지 모르겠음*/
+    outline:0; /*아웃라인 없앰*/
+}
+
+/*콘텐츠 영역*/
+#contents{
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+/*탭 메뉴 영역*/
+#tabMenu {
+    float: left;
+    width: 600px;
+    height:100%;
+    margin-top: 10px;
+}
+
+#tabMenu input[type="radio"]{
+    display:none;  /*뭥미라디오 버튼 감춤*/
+}
+
+#tabMenu label {  /*탭 제목 스타일*/
+    display: inline-block;  /*탭 가로로 배치*/
+    margin: 0 0; /*뭐지 변경해도 티가 안남*/
+    padding: 15px 25px;
+    font-weight: 600; /*폰트 굵기*/
+    text-align: center;
+    color:#aaa;
+    border: 1px solid transparent;/*테두리 스타일*/
+}
+
+#tabMenu label:hover { /*마우스 포인터를 올렸을 때 제목 스타일*/
+    color: #222;
+    cursor: pointer;
+}
+#tabMenu input:checked + label{  /*활성화된 제목 스타일*/
+    color: white;
+    border:1px solid #ddd;
+    background-color:#6493d9;
+}
+.tabContent {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+.tabContent h2 {
+    display: none;
+}
+#notice ul {
+    list-style: disc; /*뭥미*/
+    margin-left: 30px;
+}
+#notice ul li {
+    font-size: 16px;
+    line-height: 2.5;
+}
+#gallery ul li{
+    display: inline;  /*뭥미 더 알아보기이미지 가로배치*/
+}
+#tab1:checked ~#notice,
+#tab2:checked ~#gallery {
+    display: block;
+} /*input,div형제관계 ~*/
+
+/*퀵 링크 영역*/
+#links {
+    float: right;
+    width: 600px;
+    height: 100%;
+    margin-top: 15px;
+}
+#links ul{
+   padding:0; /*패딩 개념 공부*/
+   overflow: hidden; /*넘피는 항목은 감춤*/
+}
+#links ul li {
+    float: left; /*가로배치*/
+    width:33%; /*세 항목의 영역 균일 지정*/
+    text-align: center; /*가운데 정렬*/
+    margin: 10px 0; 
+}
+
+#links ul li a span {
+    display: block; /*뭥미 블록 레벨로 지정*/
+    margin: 0 auto; /*가운데 배치*/
+    width: 150px;
+    height:150px;
+    border-radius: 100%; /*테두리 둥글게 100%==150px*/
+    border:1px solid #ddd;/*테두리 스타일*/
+    line-height: 180px; /*뭥미 수직으로 중간에 오게*/
+
+}
+#quick-icon1 {
+    background-image:url('../images/icon-1.jpg');
+}
+#quick-icon2 {
+background-image: url('../images/icon-2.jpg');
+}
+#quick-icon3 {
+    background-image: url('../images/icon-3.jpg');
+}
+
+#links ul li a p{
+    margin-top: 15px;
+    font-weight: 600;
+    color:#666;
+}
+
+/*푸터 영역*/
+footer{
+    width: 100%;
+    height: 100px;
+    border-top:2px solid #222;
+}
+#bottomMenu{
+    width:100%;
+    height:20px;
+    position:relative;
+}
+#bottomMenu ul li {
+    float:left;  /*가로 배치*/
+    padding: 5px 20px;
+    border-right: 1px solid #ddd; /*항목 오른쪽에 세로선*/
+}
+#bottomMenu ul li:last-child{
+    border-right:none;  /*마지막 항목에는 세로선 없음*/
+}
+#bottomMenu ul li a,#bottomMenu ul li a:visited {/*뭥미*/
+    font-size:15px;
+    color:#666; 
+}
+#sns {
+    position: absolute;
+    right: 0;
+}
+#sns ul li {
+    border: none; /*세로선 없이*/
+    padding: 5px;
+}
+#company {
+    clear: left; /*플로팅 해제, clear: both도 가능*/
+    margin-top:25px ;
+    margin-left:20px;
+}
+p{
+    font: size 14px;
+    color:#aaa;
+}
